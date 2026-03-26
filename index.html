@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EduLearn | Learn Without Limits</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/auth.js" defer></script>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">EduLearn</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Support</a>
+        <a href="blog.html">Blog</a>
+        <button class="btn-outline" onclick="openAuth()">Login</button>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Build Skills for the Future</h1>
+    <p>Learn from experts, gain certifications, grow your career.</p>
+    <button class="btn-primary" onclick="goToCourses()">Explore Courses</button>
+</section>
+
+<section class="features">
+    <div class="feature-card">🎓 Expert Instructors</div>
+    <div class="feature-card">📜 Certifications</div>
+</section>
+
+<footer class="footer">© 2027 EduLearn</footer>
+
+<!-- Login Modal -->
+<div id="authModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeAuth()">&times;</span>
+        <h2>Login</h2>
+        <input placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button class="btn-primary">Login</button>
+    </div>
+</div>
+<div id="overlay" class="overlay" onclick="closeAuth()"></div>
+
+
+</body>
+</html>

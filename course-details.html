@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EduLearn | Course</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <script src="js/courses.js" defer></script>
+    <script src="js/ui.js" defer></script>
+</head>
+<body>
+
+<header class="navbar">
+    <a href="courses.html">← Back</a>
+</header>
+
+<section class="course-header">
+    <h1 id="courseTitle"></h1>
+    <p id="courseDescription"></p>
+    <button class="btn-primary" onclick="enroll()">Enroll</button>
+</section>
+
+<section class="tabs">
+    <button onclick="openTab('overview')" class="tab active">Overview</button>
+    <button onclick="openTab('syllabus')" class="tab">Syllabus</button>
+    <button onclick="openTab('reviews')" class="tab">Reviews</button>
+</section>
+
+<div id="overview" class="tab-content active">
+    8 Weeks · Certificate · Beginner
+</div>
+
+<div id="syllabus" class="tab-content">
+    <ul>
+        <li>Week 1 – Basics</li>
+        <li>Week 2 – Core Concepts</li>
+        <li>Week 3 – Project</li>
+    </ul>
+</div>
+
+<div id="reviews" class="tab-content">
+    ⭐⭐⭐⭐⭐ Very well structured course
+</div>
+
+</body>
+</html>
