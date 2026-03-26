@@ -2,52 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduLearn | Learn Without Limits</title>
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/animations.css">
+
     <script src="js/main.js" defer></script>
     <script src="js/auth.js" defer></script>
 </head>
+
 <body>
 
 <header class="navbar">
     <div class="logo">EduLearn</div>
+
     <nav>
-        <a href="index.html">Home</a>
+        <a href="index.html" class="active">Home</a>
         <a href="courses.html">Courses</a>
         <a href="about.html">About</a>
         <a href="contact.html">Support</a>
         <a href="blog.html">Blog</a>
         <button class="btn-outline" onclick="openAuth()">Login</button>
+        <button class="btn-primary small" onclick="goToCourses()">Get Started</button>
     </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-    <h1>Build Skills for the Future</h1>
-    <p>Learn from experts, gain certifications, grow your career.</p>
-    <button class="btn-primary" onclick="goToCourses()">Explore Courses</button>
+    <div class="hero-content">
+        <h1>Build Skills for the Future 🚀</h1>
+        <p>
+            Learn from industry experts, earn certifications, and advance your career 
+            with flexible online learning.
+        </p>
+
+        <div class="hero-actions">
+            <button class="btn-primary" onclick="goToCourses()">Explore Courses</button>
+            <button class="btn-outline" onclick="openAuth()">Join Free</button>
+        </div>
+    </div>
 </section>
 
+<!-- FEATURES -->
 <section class="features">
     <div class="feature-card">🎓 Expert Instructors</div>
     <div class="feature-card">📜 Certifications</div>
+    <div class="feature-card">🌍 Learn Anywhere</div>
+    <div class="feature-card">💼 Career Growth</div>
 </section>
 
-<footer class="footer">© 2027 EduLearn</footer>
+<!-- CALL TO ACTION -->
+<section class="cta">
+    <h2>Start Learning Today</h2>
+    <p>Join thousands of learners building their future with EduLearn.</p>
+    <button class="btn-primary" onclick="goToCourses()">Browse Courses</button>
+</section>
 
-<!-- Login Modal -->
+<footer class="footer">
+    <p>© 2027 EduLearn. All rights reserved.</p>
+</footer>
+
+<!-- LOGIN MODAL -->
 <div id="authModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeAuth()">&times;</span>
+
         <h2>Login</h2>
-        <input placeholder="Email">
-        <input type="password" placeholder="Password">
-        <button class="btn-primary">Login</button>
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password">
+
+        <button class="btn-primary full">Login</button>
+
+        <p class="switch-auth">
+            Don’t have an account? <span onclick="switchToSignup()">Sign up</span>
+        </p>
     </div>
 </div>
-<div id="overlay" class="overlay" onclick="closeAuth()"></div>
 
+<div id="overlay" class="overlay" onclick="closeAuth()"></div>
 
 </body>
 </html>
