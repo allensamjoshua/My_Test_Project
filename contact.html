@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact EduLearn</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -10,19 +12,34 @@
     <h1>Contact Support</h1>
 </header>
 
-<section>
-    <details>
-        <summary>How do I enroll?</summary>
-        Click enroll on any course.
-    </details>
-</section>
+<main class="container">
 
-<form onsubmit="event.preventDefault(); alert('Message sent');">
-    <input required placeholder="Name">
-    <input required type="email" placeholder="Email">
-    <textarea required placeholder="Message"></textarea>
-    <button class="btn-primary">Send</button>
-</form>
+    <section>
+        <details>
+            <summary><strong>How do I enroll?</strong></summary>
+            <p>Click the <b>Enroll</b> button on any course page to get started.</p>
+        </details>
+    </section>
+
+    <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+        
+        <label>Name</label>
+        <input required placeholder="Enter your name">
+
+        <label>Email</label>
+        <input required type="email" placeholder="Enter your email">
+
+        <label>Message</label>
+        <textarea required placeholder="Type your message here..."></textarea>
+
+        <button class="btn-primary">Send Message</button>
+    </form>
+
+</main>
+
+<footer>
+    <p style="text-align:center;">© 2026 EduLearn Support</p>
+</footer>
 
 </body>
 </html>
