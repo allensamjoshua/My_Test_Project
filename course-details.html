@@ -6,6 +6,68 @@
     <title>EduLearn | Course</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
+
+    <style>
+        .course-header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .course-header img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin: 5px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            background: #eee;
+            margin: 0 5px;
+            border-radius: 6px;
+        }
+
+        .tab.active {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        #enrollMsg {
+            text-align: center;
+            color: green;
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+
     <script src="js/courses.js" defer></script>
     <script src="js/ui.js" defer></script>
 </head>
@@ -18,22 +80,32 @@
 <main>
 
 <section class="course-header">
+    <img src="https://via.placeholder.com/800x300" alt="Course Banner">
+
     <h1 id="courseTitle">Course Title</h1>
     <p id="courseDescription">Course description will appear here.</p>
+
+    <div>
+        <span class="badge">Beginner</span>
+        <span class="badge">Certificate</span>
+        <span class="badge">8 Weeks</span>
+    </div>
+
     <button type="button" class="btn-primary" onclick="enroll()">Enroll</button>
+    <p id="enrollMsg">✅ Successfully enrolled!</p>
 </section>
 
 <section class="tabs" role="tablist">
-    <button type="button" onclick="openTab('overview')" class="tab active">Overview</button>
-    <button type="button" onclick="openTab('syllabus')" class="tab">Syllabus</button>
-    <button type="button" onclick="openTab('reviews')" class="tab">Reviews</button>
+    <button type="button" class="tab active" role="tab" aria-selected="true" onclick="openTab(event, 'overview')">Overview</button>
+    <button type="button" class="tab" role="tab" onclick="openTab(event, 'syllabus')">Syllabus</button>
+    <button type="button" class="tab" role="tab" onclick="openTab(event, 'reviews')">Reviews</button>
 </section>
 
-<div id="overview" class="tab-content active">
+<div id="overview" class="tab-content active" role="tabpanel">
     <p>⏳ Duration: 8 Weeks · 📜 Certificate · 👶 Beginner Level</p>
 </div>
 
-<div id="syllabus" class="tab-content">
+<div id="syllabus" class="tab-content" role="tabpanel">
     <ul>
         <li>Week 1 – Basics</li>
         <li>Week 2 – Core Concepts</li>
@@ -41,11 +113,37 @@
     </ul>
 </div>
 
-<div id="reviews" class="tab-content">
+<div id="reviews" class="tab-content" role="tabpanel">
     <p>⭐⭐⭐⭐⭐ Very well structured course</p>
 </div>
 
 </main>
+
+<script>
+function openTab(event, tabId) {
+    const contents = document.querySelectorAll(".tab-content");
+    const tabs = document.querySelectorAll(".tab");
+
+    contents.forEach(c => c.classList.remove("active"));
+    tabs.forEach(t => {
+        t.classList.remove("active");
+        t.setAttribute("aria-selected", "false");
+    });
+
+    document.getElementById(tabId).classList.add("active");
+    event.currentTarget.classList.add("active");
+    event.currentTarget.setAttribute("aria-selected", "true");
+}
+
+function enroll() {
+    const msg = document.getElementById("enrollMsg");
+    msg.style.display = "block";
+
+    setTimeout(() => {
+        msg.style.display = "none";
+    }, 3000);
+}
+</script>
 
 </body>
 </html>
