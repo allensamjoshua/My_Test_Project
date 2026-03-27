@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduLearn | Course</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
@@ -10,23 +12,25 @@
 <body>
 
 <header class="navbar">
-    <a href="courses.html">← Back</a>
+    <a href="courses.html" class="back-link">← Back to Courses</a>
 </header>
 
+<main>
+
 <section class="course-header">
-    <h1 id="courseTitle"></h1>
-    <p id="courseDescription"></p>
-    <button class="btn-primary" onclick="enroll()">Enroll</button>
+    <h1 id="courseTitle">Course Title</h1>
+    <p id="courseDescription">Course description will appear here.</p>
+    <button type="button" class="btn-primary" onclick="enroll()">Enroll</button>
 </section>
 
-<section class="tabs">
-    <button onclick="openTab('overview')" class="tab active">Overview</button>
-    <button onclick="openTab('syllabus')" class="tab">Syllabus</button>
-    <button onclick="openTab('reviews')" class="tab">Reviews</button>
+<section class="tabs" role="tablist">
+    <button type="button" onclick="openTab('overview')" class="tab active">Overview</button>
+    <button type="button" onclick="openTab('syllabus')" class="tab">Syllabus</button>
+    <button type="button" onclick="openTab('reviews')" class="tab">Reviews</button>
 </section>
 
 <div id="overview" class="tab-content active">
-    8 Weeks · Certificate · Beginner
+    <p>⏳ Duration: 8 Weeks · 📜 Certificate · 👶 Beginner Level</p>
 </div>
 
 <div id="syllabus" class="tab-content">
@@ -38,8 +42,10 @@
 </div>
 
 <div id="reviews" class="tab-content">
-    ⭐⭐⭐⭐⭐ Very well structured course
+    <p>⭐⭐⭐⭐⭐ Very well structured course</p>
 </div>
+
+</main>
 
 </body>
 </html>
