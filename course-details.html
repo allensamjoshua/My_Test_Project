@@ -6,7 +6,6 @@
     <title>EduLearn | Course</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/components.css">
 
     <style>
         body {
@@ -16,69 +15,64 @@
         }
 
         .navbar {
-            position: sticky;
-            top: 0;
             background: white;
-            padding: 10px 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            z-index: 100;
+            padding: 12px 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        main {
+            max-width: 900px;
+            margin: auto;
         }
 
         .course-header {
             text-align: center;
-            padding: 30px 20px;
+            padding: 25px;
         }
 
         .course-header img {
-            max-width: 100%;
-            border-radius: 12px;
-            margin-bottom: 15px;
+            width: 100%;
+            border-radius: 10px;
         }
 
         .meta {
-            color: #777;
-            font-size: 14px;
-            margin-top: 5px;
+            color: #666;
+            margin: 10px 0;
         }
 
-        .badge {
-            display: inline-block;
-            background: #4CAF50;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            margin: 5px;
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #4CAF50;
         }
 
         .btn-primary {
-            margin-top: 15px;
+            margin-top: 10px;
             padding: 10px 20px;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             background: #4CAF50;
             color: white;
             cursor: pointer;
         }
 
         .btn-primary:disabled {
-            background: #999;
-            cursor: not-allowed;
+            background: gray;
         }
 
         .tabs {
             display: flex;
             justify-content: center;
-            margin: 25px 0;
+            margin: 20px 0;
         }
 
         .tab {
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            background: #e0e0e0;
+            padding: 10px 15px;
             margin: 0 5px;
-            border-radius: 8px;
+            border: none;
+            background: #ddd;
+            cursor: pointer;
+            border-radius: 6px;
         }
 
         .tab.active {
@@ -88,22 +82,26 @@
 
         .tab-content {
             display: none;
-            padding: 20px;
-            max-width: 700px;
-            margin: auto;
             background: white;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 8px;
         }
 
         .tab-content.active {
             display: block;
         }
 
-        #enrollMsg {
+        .instructor {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #444;
+        }
+
+        footer {
             text-align: center;
-            color: green;
-            margin-top: 10px;
-            display: none;
+            padding: 15px;
+            margin-top: 30px;
+            color: #777;
         }
     </style>
 </head>
@@ -119,66 +117,62 @@
 <section class="course-header">
     <img src="https://via.placeholder.com/800x300" alt="Course Banner">
 
-    <h1 id="courseTitle">Python for Beginners</h1>
-    <p id="courseDescription">Learn Python from scratch with hands-on projects and real-world examples.</p>
+    <h1>Python for Beginners</h1>
+    <p>Master Python basics with hands-on learning.</p>
 
     <div class="meta">
-        ⭐ 4.5 · 12,000 students enrolled
+        ⭐ 4.5 · 12k students · 8 weeks
     </div>
 
-    <div>
-        <span class="badge">Beginner</span>
-        <span class="badge">Certificate</span>
-        <span class="badge">8 Weeks</span>
-    </div>
+    <div class="price">₹999</div>
 
-    <button id="enrollBtn" class="btn-primary" onclick="enroll()">Enroll</button>
-    <p id="enrollMsg">✅ Successfully enrolled!</p>
+    <button id="enrollBtn" class="btn-primary" onclick="enroll()">Enroll Now</button>
+    <p id="msg" style="display:none;color:green;">Enrolled successfully!</p>
+
+    <div class="instructor">
+        Instructor: John Doe
+    </div>
 </section>
 
-<section class="tabs" role="tablist">
-    <button class="tab active" onclick="openTab(event, 'overview')">Overview</button>
-    <button class="tab" onclick="openTab(event, 'syllabus')">Syllabus</button>
-    <button class="tab" onclick="openTab(event, 'reviews')">Reviews</button>
+<section class="tabs">
+    <button class="tab active" onclick="openTab(event,'overview')">Overview</button>
+    <button class="tab" onclick="openTab(event,'syllabus')">Syllabus</button>
 </section>
 
 <div id="overview" class="tab-content active">
-    <p>⏳ Duration: 8 Weeks · 📜 Certificate · 👶 Beginner Level</p>
-    <p>This course covers Python basics, data structures, and mini projects.</p>
+    <p>This course teaches Python fundamentals, data structures, and real-world usage.</p>
 </div>
 
 <div id="syllabus" class="tab-content">
     <ul>
-        <li>Week 1 – Python Basics</li>
-        <li>Week 2 – Data Structures</li>
-        <li>Week 3 – Functions & Modules</li>
-        <li>Week 4 – Mini Project</li>
+        <li>Intro to Python</li>
+        <li>Variables & Loops</li>
+        <li>Functions</li>
+        <li>Mini Project</li>
     </ul>
-</div>
-
-<div id="reviews" class="tab-content">
-    <p>⭐⭐⭐⭐⭐ Excellent course for beginners!</p>
-    <p>⭐⭐⭐⭐ Very practical and easy to follow.</p>
 </div>
 
 </main>
 
-<script>
-function openTab(event, tabId) {
-    document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
-    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+<footer>
+    © 2026 EduLearn · Learn Without Limits
+</footer>
 
-    document.getElementById(tabId).classList.add("active");
-    event.currentTarget.classList.add("active");
+<script>
+function openTab(e, id) {
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+
+    document.getElementById(id).classList.add('active');
+    e.target.classList.add('active');
 }
 
 function enroll() {
     const btn = document.getElementById("enrollBtn");
-    const msg = document.getElementById("enrollMsg");
+    const msg = document.getElementById("msg");
 
     btn.disabled = true;
     btn.innerText = "Enrolled";
-
     msg.style.display = "block";
 }
 </script>
