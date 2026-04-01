@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="./../static/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./../static/css/login.css">
+    <link rel="stylesheet" href="./../static/css/main.css">
+    <title>QA Genie</title>
+</head>
+
+<body>
+    <div class="container-fluid login-Container">
+        <div class="row login-Row">
+            <div class="col-lg-5 login_first_section">
+                <div class="sub_sec_1 mt-2">
+                    <img src="./../static/images/logo.png" alt="Logo" class="logo">
+                </div>
+
+                <div class="sub_sec_2">
+                    <h1>Welcome !</h1>
+                    <p>_________</p>
+                    <p>Our AI Powered Testing Tool is not just another automation framework, it’s a self-learning,
+                        intelligent assistant that accelerates QA from day one.</p>
+                </div>
+                <div class="sub_sec_3">
+                    <a href="https://www.unitedtechno.com/qagenie/" target="_blank"
+                        style="color: white;text-decoration: none !important;">
+                        <button type="button" class="btn btn-ternary">Learn More</button>
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-lg-7 login_second_section">
+                <div class="card login-card">
+                    <div class="card-body">
+                        <div class="cardHeader signupHeader mt-2">
+                            <h6>Welcome Back</h6>
+                            <h4 class="card-span">Log into your account</h4>
+                        </div>
+                        <form class="login-form" id="loginForm">
+                            <div class="form-group form-text">
+                                <input type="email" name="email" id="email" class="form-control login-Text"
+                                    placeholder="Email Address">
+                                <small id="emailvalid" class="invalid-feedback" style="color: red;">
+                                    Your email must be a valid email
+                                </small>
+                            </div>
+                            <div class="input-group mb-3 form-text">
+                                <input type="password" name="pass" id="password" class="form-control login-Text"
+                                    placeholder="Password">
+                                <div class="input-group-append togglePassword">
+                                    <span class="input-group-text" id="basic-addon2"
+                                        style="height: 40px; background-color: #FFFFFF;border-left: none !important; cursor: pointer;">
+                                        <i class="fa fa-eye" id="eyeIcon"></i>
+                                    </span>
+                                </div>
+                                <small id="passcheck" style="color: red;" hidden class="text-center m-0">
+                                    Password field is mandatory
+                                </small>
+                            </div>
+                            <button type="submit" class="btn btn-primary sign-in">Log In</button>
+                        </form>
+                        <a class="forgotLabel" href="/forgotPassword"><span class="forgot-Label">Forgot
+                                Password?</span></a>
+                        <div class="row">
+                            <hr class="mt-2">
+                            <div class="signup text-center">
+                                <span>Don’t have an account yet? <a href="/register"><span class="dashboard-Span">Sign
+                                            Up Now</span></a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.19.5/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script src="./../static/js/login.js"></script>
+</body>
+
+</html>
