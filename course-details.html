@@ -5,59 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduLearn | Course</title>
 
-    <link rel="stylesheet" href="css/style.css">
-
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f5f7fa;
+            background: #f4f6f9;
             margin: 0;
         }
 
         .navbar {
-            background: white;
-            padding: 12px 20px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            background: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
         }
 
         main {
-            max-width: 900px;
+            max-width: 800px;
             margin: auto;
         }
 
         .course-header {
             text-align: center;
-            padding: 25px;
+            padding: 20px;
         }
 
         .course-header img {
             width: 100%;
-            border-radius: 10px;
+            border-radius: 8px;
         }
 
         .meta {
             color: #666;
-            margin: 10px 0;
+            font-size: 14px;
         }
 
         .price {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
-            color: #4CAF50;
+            color: #2e7d32;
+            margin-top: 10px;
         }
 
-        .btn-primary {
+        .btn {
             margin-top: 10px;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border: none;
-            border-radius: 6px;
-            background: #4CAF50;
+            border-radius: 5px;
+            background: #2e7d32;
             color: white;
             cursor: pointer;
-        }
-
-        .btn-primary:disabled {
-            background: gray;
         }
 
         .tabs {
@@ -67,41 +62,27 @@
         }
 
         .tab {
-            padding: 10px 15px;
+            padding: 8px 14px;
             margin: 0 5px;
             border: none;
             background: #ddd;
             cursor: pointer;
-            border-radius: 6px;
         }
 
         .tab.active {
-            background: #4CAF50;
+            background: #2e7d32;
             color: white;
         }
 
-        .tab-content {
+        .content {
             display: none;
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .instructor {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #444;
-        }
-
-        footer {
-            text-align: center;
             padding: 15px;
-            margin-top: 30px;
-            color: #777;
+            border-radius: 6px;
+        }
+
+        .content.active {
+            display: block;
         }
     </style>
 </head>
@@ -109,58 +90,62 @@
 <body>
 
 <header class="navbar">
-    <a href="courses.html">← Back to Courses</a>
+    <a href="courses.html">← Courses</a>
 </header>
 
 <main>
 
 <section class="course-header">
-    <img src="https://via.placeholder.com/800x300" alt="Course Banner">
+    <img src="https://via.placeholder.com/800x300" alt="banner">
 
-    <h1>Python for Beginners</h1>
-    <p>Master Python basics with hands-on learning.</p>
+    <!-- UPDATED -->
+    <h1>Advanced Python Bootcamp</h1>
+    <p>Upgrade your Python skills with real-world projects.</p>
 
     <div class="meta">
-        ⭐ 4.5 · 12k students · 8 weeks
+        ⭐ 4.7 · <span id="count">12000</span> enrolled · Updated: Mar 2026
     </div>
 
-    <div class="price">₹999</div>
+    <!-- UPDATED PRICE -->
+    <div class="price">₹1499</div>
 
-    <button id="enrollBtn" class="btn-primary" onclick="enroll()">Enroll Now</button>
-    <p id="msg" style="display:none;color:green;">Enrolled successfully!</p>
-
-    <div class="instructor">
-        Instructor: John Doe
-    </div>
+    <button id="btn" class="btn" onclick="enroll()">Enroll</button>
 </section>
 
 <section class="tabs">
     <button class="tab active" onclick="openTab(event,'overview')">Overview</button>
     <button class="tab" onclick="openTab(event,'syllabus')">Syllabus</button>
+
+    <!-- ADDED -->
+    <button class="tab" onclick="openTab(event,'resources')">Resources</button>
 </section>
 
-<div id="overview" class="tab-content active">
-    <p>This course teaches Python fundamentals, data structures, and real-world usage.</p>
+<div id="overview" class="content active">
+    <p>Learn advanced Python concepts including APIs, automation, and projects.</p>
 </div>
 
-<div id="syllabus" class="tab-content">
+<div id="syllabus" class="content">
     <ul>
-        <li>Intro to Python</li>
-        <li>Variables & Loops</li>
-        <li>Functions</li>
-        <li>Mini Project</li>
+        <li>OOP Concepts</li>
+        <li>File Handling</li>
+        <li>API Integration</li>
+    </ul>
+</div>
+
+<!-- NEW TAB CONTENT -->
+<div id="resources" class="content">
+    <ul>
+        <li>Downloadable PDFs</li>
+        <li>Source Code</li>
+        <li>Project Files</li>
     </ul>
 </div>
 
 </main>
 
-<footer>
-    © 2026 EduLearn · Learn Without Limits
-</footer>
-
 <script>
 function openTab(e, id) {
-    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
 
     document.getElementById(id).classList.add('active');
@@ -168,12 +153,14 @@ function openTab(e, id) {
 }
 
 function enroll() {
-    const btn = document.getElementById("enrollBtn");
-    const msg = document.getElementById("msg");
+    const btn = document.getElementById("btn");
+    const count = document.getElementById("count");
 
-    btn.disabled = true;
     btn.innerText = "Enrolled";
-    msg.style.display = "block";
+    btn.disabled = true;
+
+    // ADDED: increment count
+    count.innerText = parseInt(count.innerText) + 1;
 }
 </script>
 
