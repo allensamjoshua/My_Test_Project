@@ -8,14 +8,21 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f4f6f9;
             margin: 0;
+            background: #ffffff;
+            color: #000;
+        }
+
+        body.dark {
+            background: #121212;
+            color: #eee;
         }
 
         .navbar {
-            background: #fff;
             padding: 10px 20px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
         }
 
         main {
@@ -30,29 +37,23 @@
 
         .course-header img {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 6px;
         }
 
-        .meta {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .price {
-            font-size: 20px;
-            font-weight: bold;
-            color: #2e7d32;
+        .info {
             margin-top: 10px;
+            font-size: 14px;
+            color: gray;
         }
 
         .btn {
-            margin-top: 10px;
-            padding: 10px 18px;
+            margin: 8px;
+            padding: 8px 16px;
             border: none;
-            border-radius: 5px;
-            background: #2e7d32;
+            background: #1976d2;
             color: white;
             cursor: pointer;
+            border-radius: 4px;
         }
 
         .tabs {
@@ -70,18 +71,22 @@
         }
 
         .tab.active {
-            background: #2e7d32;
+            background: #1976d2;
             color: white;
         }
 
-        .content {
+        .tab-panel {
             display: none;
-            background: white;
             padding: 15px;
+            background: #f9f9f9;
             border-radius: 6px;
         }
 
-        .content.active {
+        body.dark .tab-panel {
+            background: #1e1e1e;
+        }
+
+        .tab-panel.active {
             display: block;
         }
     </style>
@@ -91,6 +96,7 @@
 
 <header class="navbar">
     <a href="courses.html">← Courses</a>
+    <button class="btn" onclick="toggleTheme()">Toggle Theme</button>
 </header>
 
 <main>
@@ -98,46 +104,35 @@
 <section class="course-header">
     <img src="https://via.placeholder.com/800x300" alt="banner">
 
-    <!-- UPDATED -->
-    <h1>Advanced Python Bootcamp</h1>
-    <p>Upgrade your Python skills with real-world projects.</p>
+    <h1>Python Automation Mastery</h1>
+    <p>Automate real-world tasks using Python.</p>
 
-    <div class="meta">
-        ⭐ 4.7 · <span id="count">12000</span> enrolled · Updated: Mar 2026
+    <!-- NEW INFO STRUCTURE -->
+    <div class="info">
+        Duration: 6 Weeks · Level: Intermediate
     </div>
 
-    <!-- UPDATED PRICE -->
-    <div class="price">₹1499</div>
-
-    <button id="btn" class="btn" onclick="enroll()">Enroll</button>
+    <!-- NEW BUTTON -->
+    <button class="btn">Preview Course</button>
+    <button id="enrollBtn" class="btn" onclick="enroll()">Enroll</button>
 </section>
 
 <section class="tabs">
     <button class="tab active" onclick="openTab(event,'overview')">Overview</button>
     <button class="tab" onclick="openTab(event,'syllabus')">Syllabus</button>
-
-    <!-- ADDED -->
-    <button class="tab" onclick="openTab(event,'resources')">Resources</button>
 </section>
 
-<div id="overview" class="content active">
-    <p>Learn advanced Python concepts including APIs, automation, and projects.</p>
+<div id="overview" class="tab-panel active">
+    <p>Learn automation using Python, Selenium, APIs, and scripting.</p>
 </div>
 
-<div id="syllabus" class="content">
+<div id="syllabus" class="tab-panel">
     <ul>
-        <li>OOP Concepts</li>
-        <li>File Handling</li>
-        <li>API Integration</li>
-    </ul>
-</div>
-
-<!-- NEW TAB CONTENT -->
-<div id="resources" class="content">
-    <ul>
-        <li>Downloadable PDFs</li>
-        <li>Source Code</li>
-        <li>Project Files</li>
+        <!-- UPDATED CONTENT -->
+        <li>Automation Basics</li>
+        <li>Selenium & Web Scraping</li>
+        <li>Task Scheduling</li>
+        <li>Final Automation Project</li>
     </ul>
 </div>
 
@@ -145,7 +140,7 @@
 
 <script>
 function openTab(e, id) {
-    document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
 
     document.getElementById(id).classList.add('active');
@@ -153,14 +148,14 @@ function openTab(e, id) {
 }
 
 function enroll() {
-    const btn = document.getElementById("btn");
-    const count = document.getElementById("count");
-
+    const btn = document.getElementById("enrollBtn");
     btn.innerText = "Enrolled";
     btn.disabled = true;
+}
 
-    // ADDED: increment count
-    count.innerText = parseInt(count.innerText) + 1;
+// NEW FEATURE
+function toggleTheme() {
+    document.body.classList.toggle("dark");
 }
 </script>
 
