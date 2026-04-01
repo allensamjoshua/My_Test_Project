@@ -8,40 +8,74 @@
     <link rel="stylesheet" href="css/components.css">
 
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+        }
+
         .course-header {
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
         }
 
         .course-header img {
             max-width: 100%;
-            border-radius: 10px;
+            border-radius: 12px;
             margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .course-header p {
+            color: #555;
+            max-width: 600px;
+            margin: auto;
         }
 
         .badge {
             display: inline-block;
             background: #4CAF50;
             color: white;
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 20px;
             font-size: 12px;
             margin: 5px;
         }
 
+        .btn-primary {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #43a047;
+            transform: translateY(-2px);
+        }
+
         .tabs {
             display: flex;
             justify-content: center;
-            margin: 20px 0;
+            margin: 25px 0;
         }
 
         .tab {
             padding: 10px 20px;
             border: none;
             cursor: pointer;
-            background: #eee;
+            background: #e0e0e0;
             margin: 0 5px;
-            border-radius: 6px;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .tab:hover {
+            background: #d5d5d5;
         }
 
         .tab.active {
@@ -53,7 +87,11 @@
             display: none;
             padding: 20px;
             max-width: 700px;
-            margin: auto;
+            margin: 20px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            animation: fadeIn 0.3s ease-in-out;
         }
 
         .tab-content.active {
@@ -63,8 +101,18 @@
         #enrollMsg {
             text-align: center;
             color: green;
-            display: none;
             margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        #enrollMsg.show {
+            opacity: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 
@@ -137,10 +185,10 @@ function openTab(event, tabId) {
 
 function enroll() {
     const msg = document.getElementById("enrollMsg");
-    msg.style.display = "block";
+    msg.classList.add("show");
 
     setTimeout(() => {
-        msg.style.display = "none";
+        msg.classList.remove("show");
     }, 3000);
 }
 </script>
